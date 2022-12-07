@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{% endblock %}
+
+{% block body %}
+<h1>CREAR EMPLEADO</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Guardar" class="btn btn-success">
+</form>
+<td> <a href="{% url 'verEmpleado' %}"> <button class="btn btn-info ">ver empleado</button></a></td>
+
+{% endblock body %}

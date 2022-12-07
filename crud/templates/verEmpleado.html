@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} VER EMPLEADOS{% endblock %}
+
+{% block body %}
+<h1>VER EMPLEADOS</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre:</th>
+            <th>Cargo:</th>
+            <th>Dias Trabajados:</th>
+            <th>Mes Pagado:</th>
+            <th>Total:</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in empleado %}
+        <tr>
+            <td>{{ c.Nombre }}</td>
+            <td>{{ c.Cargo }}</td>
+            <td>{{ c.Diastrabajados }}</td>
+            <td>{{ c.Mespagado }}</td>
+            <td>{{ c.TotalSalario }}</td>
+            <td> <a href="{% url 'actualizarEmpleado' id=c.id %}"> <button class="btn btn-info ">Actualizar</button></a></td>
+            <td> <a onclick ="borrar('{{c.id}}')"><button class="btn btn-danger ">Eliminar</button></a></td>
+            <td> <a href="{% url 'crearEmpleado' %}"> <button class="btn btn-info ">registrar empleado</button></a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock  %}
